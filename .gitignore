@@ -1,7 +1,9 @@
+# terraform modules
+.terraform/*
 .terraform.lock.hcl
+.terraform.tfstate.lock.info
+
+# terraform files
 terraform.tfstate.backup
 terraform.tfstate
-.terraform/*
-.terraform.tfstate.lock.info
-id
-mysql/.terraform/*
+terraform.tfvars
