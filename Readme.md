@@ -1,8 +1,8 @@
 
 # Ambiente de Desenvolvimento
+- Criar conta na Nuvem (Microsoft Azure)
 - Instalar AZ CLI
 - Instalar Terraform
-- Criar conta na Nuvem (Azure)
 
 ## Terraform
 o Terraform é uma ferramenta para construção, manutenção e versionamento de infraestrutura de forma segura e eficiente.
