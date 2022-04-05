@@ -27,19 +27,26 @@ Por exemplo, para criar uma máquina virtual, é necessário os seguintes recurs
 - Network Board
 - VM
 
-## 1. Criar Grupo de Recursos
-- Resource: azurerm_resource_group (Resource Group)
-- Docs: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group
+## 1. Criar Grupo de Recursos (Resource Group - rg)
+Nome do Recurso: azurerm_resource_group | [ver docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 
 O Resource Group tem como finalidade agrupar os recursos do Azure com um objetivo específico.
 Esse agrupamento permite o administrador realizar a criação, monitoramento, controle de acessos e de custo de cada grupo de recursos.
 
-## 2. Criar rede virtualizada (vnet) com subrede (subnet)
-- Resource: azurerm_virtual_network (Virtual Network)
-- Docs: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network
+## 2. Criar Rede Virtual (Virtual Network - vnet)
+Nome do Recurso na Azure: azurerm_virtual_network | [ver docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
 
+A rede virtual permite a comunicação entre várias máquinas virtuais em diferentes locais pela internet por meio de softwares (diferente da rede física que utiliza cabeamento e hardwares). Esses softwares são versões virtualizadas de ferramentas de rede tradicionais, como switches e adaptadores de rede, permitindo roteamento mais eficiente e alterações de configuração de rede mais fáceis.
+
+
+## 3. Criar Sub-rede (subnet)
+Nome do Recurso na Azure: azurerm_subnet |  [ver docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+
+As sub-redes representam segmentos de rede dentro do espaço IP definido pela rede virtual. A subdivisão de uma rede grande em redes menores resulta num tráfego de rede reduzido, administração simplificada e melhor performance de rede
 
 ## 3. Criar IP público (vm1-ip)
+
+
 
 ## 4. Criar Firewall (vm1-nsg)
 
