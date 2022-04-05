@@ -28,6 +28,7 @@ Para fazer IaC, precisamos configurar o ambiente de desenvolvimento. Escolhemos 
 - Executar ``terraform validate``para verificar se a sintaxe do script está correta
 - Executar ``terraform plan`` para rever o que será executado no script (diff)
 - Executar ``terraform apply``para subir e rodar o script na nuvem
+- Para excluir tudo da nuvem, executar ``terraform destroy``
 
 ---
 
@@ -93,7 +94,9 @@ Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Ar
 ## 9. Máquina Virtual (Virtual Machine - vm)
 Nome do Recurso na Azure: azurerm_virtual_machine | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine)
 
-As Máquinas Virtuais do Azure (VM) são um dos vários tipos de recursos de computação escalonáveis sob demanda que o Azure oferece. Normalmente, você escolhe uma VM quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem. Para verificar o tamanho das máquinas disponíveis na Azure, [ver aqui](https://docs.microsoft.com/pt-br/azure/virtual-machines/sizes).
+As Máquinas Virtuais do Azure (VM) são um dos vários tipos de recursos de computação escalonáveis sob demanda que o Azure oferece. Normalmente, você escolhe uma VM quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
+
+> Para verificar o tamanho das máquinas disponíveis na Azure, [ver aqui](https://docs.microsoft.com/pt-br/azure/virtual-machines/sizes).
 
 ## 10. Instalar Apache server (null_resource)
 Nome do Recurso na Azure: null_resource | [ver doc](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)

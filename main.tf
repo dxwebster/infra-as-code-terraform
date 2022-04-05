@@ -2,7 +2,6 @@ terraform {
   required_version = ">= 0.13"
 
   # verificar documentação de cada provider
-  # neste caso estamos subindo para o Azure
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -17,5 +16,5 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "atividade-infra-rg" {
   name     = "atividade-infra-vm"
-  location = "eastus"
+  location = "eastus2"
 }

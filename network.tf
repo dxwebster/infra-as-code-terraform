@@ -76,7 +76,7 @@ resource "azurerm_network_security_group" "atividade-infra-nsg" {
 
 # Resource 6: Network Interface
 resource "azurerm_network_interface" "atividade-infra-nic" {
-  name                = "nic"
+  name                = "netinterface"
   location            = azurerm_resource_group.atividade-infra-rg.location
   resource_group_name = azurerm_resource_group.atividade-infra-rg.name
 
