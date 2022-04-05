@@ -147,10 +147,10 @@ resource "null_resource" "install-apache" {
 
 Existem várias formas de informar os valores das variáveis que usamos no script do Terraform:
 
-### Na execução do terraform
+## Na execução do terraform
   No momento de execução do ``terraform plan``o terminal vai solicitar a inclusão dos valores das variáveis que foram declaradas
 
-### Arquivo de variáveis
+## Arquivo de variáveis
   Criar um arquivo "terraform.tfvars" não-versionado na raíz do projeto com a declaraçao das variáveis e seus valores
 
 ```js
@@ -159,7 +159,7 @@ Existem várias formas de informar os valores das variáveis que usamos no scrip
   password = "Password123456!"
 ```
 
-### Variável Ambiente Local
+## Variável Ambiente Local
 
 Criar variável ambiente na máquina local (Linux):
 
@@ -174,7 +174,7 @@ Criar variável ambiente na máquina local (Linux):
   echo $TF_VAR_USER
   ```
 
-### Gerenciador de Senhas
+## Gerenciador de Senhas
 
 O gerenciador de senhas protege, armazena e controla rigidamente o acesso a tokens, senhas, certificados, chaves de criptografia para proteger segredos e outros dados confidenciais usando uma interface do usuário, CLI ou API HTTP.
 
