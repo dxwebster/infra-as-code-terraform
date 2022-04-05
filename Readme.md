@@ -7,7 +7,7 @@
 ## Terraform
 O Terraform é uma ferramenta para construção, manutenção e versionamento de infraestrutura de forma segura e eficiente.
 
-# Primeiros passos do Infra as Code
+# Resumo do Fluxo do Terraform
 - No terminal, executar ``az login`` para logar na Azure
 - Criar uma pasta para o projeto e executar ``terraform init``
 - Criar um arquivo main.tf para escrever o script
