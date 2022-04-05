@@ -1,8 +1,23 @@
-[Infrastructure as Code (IaC)](#infrastructure-as-code-iac)
-[Configuração do Ambiente de Desenvolvimento](#configuração-do-ambiente-de-desenvolvimento)
-[Comandos básicos do Terraform]
-[Criação de Máquina Virtual + servidor Apache na Azure]
-[Variáveis no Terraform]
+<div align="center" id="top"> 
+  <img src="./.github/app.gif" alt="Atividade 01" />
+  &#xa0;
+</div>
+
+<h1 align="center">Infraestructure as Code com Terraform</h1>
+
+<hr> -->
+
+<p align="center">
+  <a href="#dart-about">Infrastructure as Code (IaC)</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-features">Configuração do Ambiente de Desenvolvimento</a> &#xa0; | &#xa0;
+  <a href="#rocket-technologies">Comandos básicos do Terraform</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Criação de Máquina Virtual + servidor Apache na Azure</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Variáveis no Terraform</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/dxwebster" target="_blank">Author</a>
+</p>
+
+<br>
 
 
 # Infrastructure as Code (IaC)
