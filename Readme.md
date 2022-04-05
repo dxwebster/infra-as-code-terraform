@@ -5,15 +5,11 @@
 
 <h1 align="center">Infraestructure as Code com Terraform</h1>
 
-- <a href="#dart-about">Infrastructure as Code (IaC)</a>
-- <a href="#sparkles-features">Configuração do Ambiente de Desenvolvimento</a>
-- <a href="#rocket-technologies">Comandos básicos do Terraform</a>
-- <a href="#white_check_mark-requirements">Criação de Máquina Virtual + servidor Apache na Azure</a>
-- <a href="#checkered_flag-starting">Variáveis no Terraform</a>
-- <a href="#memo-license">License</a>
-- <a href="https://github.com/dxwebster" target="_blank">Author</a>
-
-<br>
+- <a href="#infrastructure-as-code-iac">Infrastructure as Code (IaC)</a>
+- <a href="#configuração-do-ambiente-de-desenvolvimento">Configuração do Ambiente de Desenvolvimento</a>
+- <a href="#comandos-básicos-do-terraform">Comandos básicos do Terraform</a>
+- <a href="#criação-de-máquina-virtual-apache-server-iaas">Criação de Máquina Virtual + Apache Server (Iaas)</a>
+- <a href="#variáveis-no-terraform">Variáveis no Terraform</a>
 
 # Infrastructure as Code (IaC)
 Em ambientes on-premises, a infraestrutura tem recursos físicos de hardware como servidores, máquinas, locação refrigerada e recursos humanos para instalar e configurar sistemas operacionais, ferramentas de desenvolvimento e fazer a manutenção das operações.
@@ -63,55 +59,55 @@ Para criar uma máquina virtual + Apache server, é necessário criar um *Resour
 Em todos os provedores de nuvem, os recursos são os mesmos, mas podem ter nomes e características diferentes. Vamos conhecer os recursos da Azure necessários para criar uma máquina virtual com servidor Apache.
 
 ## 1. Resource Group (Grupo de Recursos)
-Nome do Recurso: azurerm_resource_group | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
+[[*azurerm_resource_group*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 
 O Resource Group tem como finalidade agrupar os recursos do Azure com um objetivo específico.
 Esse agrupamento permite o administrador realizar a criação, monitoramento, controle de acessos e de custo de cada grupo de recursos.
 
 ## 2. Virtual Network - vnet (Rede Virtual)
-Nome do Recurso na Azure: azurerm_virtual_network | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
+[*azurerm_virtual_network*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
 
 A rede virtual permite a comunicação entre várias máquinas virtuais em diferentes locais pela internet por meio de softwares (diferente da rede física que utiliza cabeamento e hardwares). Esses softwares são versões virtualizadas de ferramentas de rede tradicionais, como switches e adaptadores de rede, permitindo roteamento mais eficiente e alterações de configuração de rede mais fáceis.
 
 ## 3. SubNet (Sub-rede Virtual)
-Nome do Recurso na Azure: azurerm_subnet | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+[*azurerm_subnet*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
 
 As sub-redes representam segmentos de rede dentro do espaço IP definido pela rede virtual. A subdivisão de uma rede grande em redes menores resulta num tráfego de rede reduzido, administração simplificada e melhor performance de rede
 
 ## 4. Public-IP (IP Público)
-Nome do Recurso na Azure: azurerm_public_ip | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
+[*azurerm_public_ip*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
 
 Um endereço público significa que ele pode ser acessado pela Internet. Em redes compartilhadas, os dispositivos conectados podem ter endereços IP privados próprios, mas quando se conectam pela conexão de Internet, são convertidos em um endereço IP público atribuído ao roteador.
 
 ## 5. Network Security Group - nsg (Firewall)
-Nome do Recurso na Azure: azurerm_network_security_group | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
+[*azurerm_network_security_group*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
 
 Basicamente uma NSG é um Firewall (lógico) de rede, sua função é filtrar todo o tráfego direcionado a um recurso por meio de regras de segurança, e tomar as devidas ações. Controla a permissão de tráfego de rede de entrada ou de saída em relação a vários tipos de recursos do Azure. Para cada regra, você pode especificar origem e destino, porta e protocolo.
 
 ## 6. Network Interface - nic (Placa/Interface de Rede)
-Nome do Recurso na Azure: azurerm_network_interface | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
+[*azurerm_network_interface*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
 
 A placa de interface de rede (NIC) é atribuída com o endereço IP e associada às regras NSG, que são usadas para a comunicação entre a máquina virtual ou a rede interna ou a Internet.
 
 ## 7. Network Interface Security Group Association - nic-nsg (Associar o Firewall à Placa de Rede)
-Nome do Recurso na Azure: azurerm_network_interface_security_group_association | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
+[*azurerm_network_interface_security_group_association*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
 
 Um recurso apenas para conectar um Network Security Group (NSG) a uma interface de rede (NIC).
 
 ## 8. Storage Account - sa (Conta de Armazenamento)
-Nome do Recurso na Azure: azurerm_storage_account | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
+[*azurerm_storage_account*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
 
 Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure, incluindo blobs, compartilhamentos de arquivos, filas, tabelas e discos. A conta de armazenamento fornece um namespace exclusivo para seus dados de armazenamento do Azure que podem ser acessados de qualquer lugar do mundo por HTTP ou HTTPS.
 
 ## 9. Virtual Machine - vm (Máquina Virtual)
-Nome do Recurso na Azure: azurerm_virtual_machine | [ver doc](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine)
+[*azurerm_virtual_machine*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine)
 
 As Máquinas Virtuais do Azure (VM) são um dos vários tipos de recursos de computação escalonáveis sob demanda que o Azure oferece. Normalmente, você escolhe uma VM quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
 
 > Para verificar o tamanho das máquinas disponíveis na Azure, [ver aqui](https://docs.microsoft.com/pt-br/azure/virtual-machines/sizes).
 
 ## 10. Null_resource
-Nome do Recurso na Azure: null_resource | [ver doc](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)
+[null_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)
 
 O null_resource é um recurso que permite configurar 3 provisionadores que não estão diretamente associados a um recurso existente. Se comporta exatamente como qualquer outro recurso, portanto, você configura provisionadores, detalhes de conexão e outros metaparâmetros da mesma maneira que faria em qualquer outro recurso.
 
