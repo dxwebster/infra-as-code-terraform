@@ -145,35 +145,12 @@ resource "null_resource" "install-apache" {
 
 # Variáveis no Terraform
 
-- Criação de Variável para o IP Público
+Existem várias formas de informar os valores das variáveis que usamos no script do Terraform:
 
-```bash
-data "azurerm_public_ip" "var_publicip" {
-  name                = azurerm_public_ip.public-ip.name 
-  resource_group_name = azurerm_resource_group.infra-rg.name 
-}
-```
+### Na execução do terraform
+  No momento de execução do ``terraform plan``o terminal vai solicitar a inclusão dos valores das variáveis que foram declaradas
 
-- Criação de variável para Acesso Admin da VM
-
-```bash
-variable "user" {
-  description = "usuário admin"
-  type        = string
-}
-
-variable "password" {
-  description = "password do user admin"
-  type        = string
-}
-```
-
-Existem várias formas de informar os valores das variáveis:
-
-### 1 - Na execução do ``terraform plan`` 
-  O terminal vai solicitar a inclusão dos valores das variáveis que foram declaradas
-
-### 2 - Arquivo de variáveis
+### Arquivo de variáveis
   Criar um arquivo "terraform.tfvars" não-versionado na raíz do projeto com a declaraçao das variáveis e seus valores
 
 ```js
@@ -182,7 +159,7 @@ Existem várias formas de informar os valores das variáveis:
   password = "Password123456!"
 ```
 
-### 3 - Variável Ambiente Local
+### Variável Ambiente Local
 
 Criar variável ambiente na máquina local (Linux):
 
@@ -197,7 +174,7 @@ Criar variável ambiente na máquina local (Linux):
   echo $TF_VAR_USER
   ```
 
-### 4 - Gerenciador de Senhas
+### Gerenciador de Senhas
 
 O gerenciador de senhas protege, armazena e controla rigidamente o acesso a tokens, senhas, certificados, chaves de criptografia para proteger segredos e outros dados confidenciais usando uma interface do usuário, CLI ou API HTTP.
 
