@@ -8,14 +8,13 @@
 <hr> -->
 
 <p align="center">
-<li> <a href="#dart-about">Infrastructure as Code (IaC)</a> </li>
- 
- -  <a href="#sparkles-features">Configuração do Ambiente de Desenvolvimento</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Comandos básicos do Terraform</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Criação de Máquina Virtual + servidor Apache na Azure</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Variáveis no Terraform</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/dxwebster" target="_blank">Author</a>
+- <a href="#dart-about">Infrastructure as Code (IaC)</a>
+- <a href="#sparkles-features">Configuração do Ambiente de Desenvolvimento</a>
+- <a href="#rocket-technologies">Comandos básicos do Terraform</a>
+- <a href="#white_check_mark-requirements">Criação de Máquina Virtual + servidor Apache na Azure</a>
+- <a href="#checkered_flag-starting">Variáveis no Terraform</a>
+- <a href="#memo-license">License</a>
+- <a href="https://github.com/dxwebster" target="_blank">Author</a>
 </p>
 
 <br>
