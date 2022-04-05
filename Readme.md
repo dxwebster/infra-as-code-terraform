@@ -1,6 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Atividade 01" />
-  &#xa0;
+  <img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-ar21.svg" alt="Atividade 01" />
 </div>
 
 <h1 align="center">Infraestructure as Code com Terraform</h1>
@@ -58,55 +57,55 @@ Para criar uma máquina virtual + Apache server, é necessário criar um **Resou
 
 Em todos os provedores de nuvem, os recursos são os mesmos, mas podem ter nomes e características diferentes. Vamos conhecer os recursos da Azure necessários para criar uma máquina virtual com servidor Apache.
 
-## 1. Resource Group
+## Resource Group
 [*azurerm_resource_group*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 
 O Resource Group (Grupo de Recursos) tem como finalidade agrupar os recursos do Azure com um objetivo específico.
 Esse agrupamento permite o administrador realizar a criação, monitoramento, controle de acessos e de custo de cada grupo de recursos.
 
-## 2. Virtual Network (vnet)
+## Virtual Network (vnet)
 [*azurerm_virtual_network*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
 
 A rede virtual permite a comunicação entre várias máquinas virtuais em diferentes locais pela internet por meio de softwares (diferente da rede física que utiliza cabeamento e hardwares). Esses softwares são versões virtualizadas de ferramentas de rede tradicionais, como switches e adaptadores de rede, permitindo roteamento mais eficiente e alterações de configuração de rede mais fáceis.
 
-## 3. SubNet
+## SubNet
 [*azurerm_subnet*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
 
 As sub-redes representam segmentos de rede dentro do espaço IP definido pela rede virtual. A subdivisão de uma rede grande em redes menores resulta num tráfego de rede reduzido, administração simplificada e melhor performance de rede
 
-## 4. Public IP
+## Public IP
 [*azurerm_public_ip*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
 
 Um endereço público significa que ele pode ser acessado pela Internet. Em redes compartilhadas, os dispositivos conectados podem ter endereços IP privados próprios, mas quando se conectam pela conexão de Internet, são convertidos em um endereço IP público atribuído ao roteador.
 
-## 5. Network Security Group (NSG)
+## Network Security Group (NSG)
 [*azurerm_network_security_group*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
 
 Basicamente uma NSG é um Firewall (lógico) de rede, sua função é filtrar todo o tráfego direcionado a um recurso por meio de regras de segurança, e tomar as devidas ações. Controla a permissão de tráfego de rede de entrada ou de saída em relação a vários tipos de recursos do Azure. Para cada regra, você pode especificar origem e destino, porta e protocolo.
 
-## 6. Network Interface (NIC)
+## Network Interface (NIC)
 [*azurerm_network_interface*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
 
 A placa de interface de rede (NIC) é atribuída com o endereço IP e associada às regras NSG, que são usadas para a comunicação entre a máquina virtual ou a rede interna ou a Internet.
 
-## 7. Network Interface Security Group Association (NIC-NSG)
+## Network Interface Security Group Association (NIC-NSG)
 [*azurerm_network_interface_security_group_association*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
 
 Um recurso apenas para conectar um Network Security Group (NSG) a uma interface de rede (NIC).
 
-## 8. Storage Account (SA)
+## Storage Account (SA)
 [*azurerm_storage_account*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
 
 Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure, incluindo blobs, compartilhamentos de arquivos, filas, tabelas e discos. A conta de armazenamento fornece um namespace exclusivo para seus dados de armazenamento do Azure que podem ser acessados de qualquer lugar do mundo por HTTP ou HTTPS.
 
-## 9. Virtual Machine (VM)
+## Virtual Machine (VM)
 [*azurerm_virtual_machine*](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine)
 
 As Máquinas Virtuais do Azure (VM) são um dos vários tipos de recursos de computação escalonáveis sob demanda que o Azure oferece. Normalmente, você escolhe uma VM quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
 
 > Para verificar o tamanho das máquinas disponíveis na Azure, [ver aqui](https://docs.microsoft.com/pt-br/azure/virtual-machines/sizes).
 
-## 10. null_resource
+## null_resource
 [null_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource)
 
 O null_resource é um recurso que permite configurar 3 provisionadores que não estão diretamente associados a um recurso existente. Se comporta exatamente como qualquer outro recurso, portanto, você configura provisionadores, detalhes de conexão e outros metaparâmetros da mesma maneira que faria em qualquer outro recurso.
@@ -118,6 +117,27 @@ Os 3 tipos de provisionadores (provisioner) são:
 - *local-exec*: executa um script na minha máquina local
 
 > Para usar o null_resource, precisa rodar o ``terraform init`` novamente, para baixar este plugin.
+
+Com remote-exec pode-se executar scripts na VM, ou seja, podemos instalar o apache ou qualquer outra coisa na máquina. Abaixo é a configuração de instalação do servidor Apache
+
+```bash
+resource "null_resource" "install-apache" {
+  connection {
+    type     = "ssh"
+    host     = data.azurerm_public_ip.var_publicip.ip_address
+    user     = var.user
+    password = var.password
+  }
+  # remote-exec executa um script na VM
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt update",
+      "sudo apt install -y apache2",
+    ]
+  }
+  # Indica que esse null_resource depende da criação da VM
+  depends_on = [azurerm_virtual_machine.atividade-infra-vm]
+```
 
 ---
 
