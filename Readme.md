@@ -8,7 +8,8 @@
 <hr> -->
 
 <p align="center">
-  <a href="#dart-about">Infrastructure as Code (IaC)</a> &#xa0; | &#xa0; 
+<li> <a href="#dart-about">Infrastructure as Code (IaC)</a> &#xa0; | &#xa0; </li>
+ 
   <a href="#sparkles-features">Configuração do Ambiente de Desenvolvimento</a> &#xa0; | &#xa0;
   <a href="#rocket-technologies">Comandos básicos do Terraform</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Criação de Máquina Virtual + servidor Apache na Azure</a> &#xa0; | &#xa0;
