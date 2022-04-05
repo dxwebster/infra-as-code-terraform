@@ -5,7 +5,7 @@
 - Instalar Terraform
 
 ## Terraform
-o Terraform é uma ferramenta para construção, manutenção e versionamento de infraestrutura de forma segura e eficiente.
+O Terraform é uma ferramenta para construção, manutenção e versionamento de infraestrutura de forma segura e eficiente.
 
 # Primeiros passos do Infra as Code
 - No terminal, executar ``az login`` para logar na Azure
