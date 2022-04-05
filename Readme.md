@@ -44,13 +44,13 @@ Nome do Recurso na Azure: azurerm_subnet |  [ver docs](https://registry.terrafor
 
 As sub-redes representam segmentos de rede dentro do espaço IP definido pela rede virtual. A subdivisão de uma rede grande em redes menores resulta num tráfego de rede reduzido, administração simplificada e melhor performance de rede
 
-## 3. Criar IP público (vm1-ip)
+## 4. Criar IP público (vm1-ip)
 
 
 
-## 4. Criar Firewall (vm1-nsg)
+## 5. Criar Firewall (vm1-nsg)
 
-## 5. Criar placa de rede (vm1-276)
+## 6. Criar placa de rede (vm1-276)
 
-## 6. Criar máquina e conectá-la a rede (vm1)
+## 7. Criar máquina e conectá-la a rede (vm1)
 
