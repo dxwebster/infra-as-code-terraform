@@ -5,9 +5,6 @@
 
 <h1 align="center">Infraestructure as Code com Terraform</h1>
 
-<hr> -->
-
-<p align="center">
 - <a href="#dart-about">Infrastructure as Code (IaC)</a>
 - <a href="#sparkles-features">Configuração do Ambiente de Desenvolvimento</a>
 - <a href="#rocket-technologies">Comandos básicos do Terraform</a>
@@ -15,10 +12,8 @@
 - <a href="#checkered_flag-starting">Variáveis no Terraform</a>
 - <a href="#memo-license">License</a>
 - <a href="https://github.com/dxwebster" target="_blank">Author</a>
-</p>
 
 <br>
-
 
 # Infrastructure as Code (IaC)
 Em ambientes on-premises, a infraestrutura tem recursos físicos de hardware como servidores, máquinas, locação refrigerada e recursos humanos para instalar e configurar sistemas operacionais, ferramentas de desenvolvimento e fazer a manutenção das operações.
