@@ -1,8 +1,8 @@
 <div align="center" id="top"> 
-  <img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-ar21.svg" alt="Atividade 01" />
+  <img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-ar21.svg" alt="Terraform-logo" />
 </div>
 
-<h1 align="center">Infraestructure as Code com Terraform</h1>
+<h1 align="center">Conhecendo o Terraform</h1>
 
 - <a href="#infrastructure-as-code-iac">Infrastructure as Code (IaC)</a>
 - <a href="#configuração-do-ambiente-de-desenvolvimento">Configuração do Ambiente de Desenvolvimento</a>
@@ -26,7 +26,7 @@ Para fazer IaC, precisamos configurar o ambiente de desenvolvimento. Escolhemos 
 2. Instalar [AZ CLI](https://docs.microsoft.com/pt-br/cli/azure/)
 3. Instalar [Terraform](https://www.terraform.io/downloads)
 
-> Obs 1: Existem ferramentas que também nos auxiliam na criação do ambiente para desenvolvimento de nuvem, como o [Vagrant](https://www.vagrantup.com/downloads), mas aqui vamos começar de forma mais simples apenas para conhecer o Azure e o Terraform. 
+> Obs: Existem ferramentas que também nos auxiliam na criação do ambiente para desenvolvimento de nuvem, como o [Vagrant](https://www.vagrantup.com/downloads), mas aqui vamos começar de forma mais simples apenas para conhecer o Azure e o Terraform. 
 
 # Comandos básicos do Terraform
 
@@ -112,15 +112,15 @@ O null_resource é um recurso que permite configurar 3 provisionadores que não 
 
 Os 3 tipos de provisionadores (provisioner) são:
 
-- *file*: faz upload de arquivo/pasta (com aplicação) para a VM
-- *remote-exec*: executa um script na VM
-- *local-exec*: executa um script na minha máquina local
+- **file**: faz upload de arquivo/pasta (com aplicação) para a VM
+- **remote-exec**: executa um script na VM
+- **local-exec**: executa um script na minha máquina local
 
-> Para usar o null_resource, precisa rodar o ``terraform init`` novamente, para baixar este plugin.
+
 
 Com remote-exec pode-se executar scripts na VM, ou seja, podemos instalar o apache ou qualquer outra coisa na máquina. Abaixo é a configuração de instalação do servidor Apache
 
-```bash
+```yml
 resource "null_resource" "install-apache" {
   connection {
     type     = "ssh"
@@ -138,6 +138,8 @@ resource "null_resource" "install-apache" {
   # Indica que esse null_resource depende da criação da VM
   depends_on = [azurerm_virtual_machine.atividade-infra-vm]
 ```
+
+> Obs: Para usar o null_resource, precisa rodar o ``terraform init`` novamente, para baixar este plugin.
 
 ---
 
