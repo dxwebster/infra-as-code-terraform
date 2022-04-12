@@ -13,7 +13,7 @@
 # Infrastructure as Code (IaC)
 Em ambientes on-premises, a infraestrutura tem recursos físicos de hardware como servidores, máquinas, locação refrigerada e recursos humanos para instalar e configurar sistemas operacionais, ferramentas de desenvolvimento e fazer a manutenção das operações.
 
-Em ambientes em nuvem, toda infraestrutura é virtualizada, ou seja, ainda existe um ambiente físico, mas não sob total responsabilidade dos provedores de nuvem. O usuário consegue criar máquinas e servidores e conectar cabos por exemplo, tudo de maneira virtual, por meio de interface ou por meio de código.
+Em ambientes em nuvem, toda infraestrutura é virtualizada, ou seja, ainda existe um ambiente físico, mas sob total responsabilidade dos provedores de nuvem. O usuário consegue criar máquinas e servidores e conectar cabos por exemplo, tudo de maneira virtual, por meio de interface ou por meio de código.
 
 Pela interface, é necessário entrar na conta do provedor para criar e gerenciar seus recursos, como por exemplo na plataforma da [Azure](https://azure.microsoft.com/pt-br/).
 
